@@ -71,7 +71,7 @@ function LED1_Off(){
         console.log("onMessageArrived:"+message.payloadString);
 	 
 	archivos=message.payloadString;
-	if(archivos[0]=="1")(
+	if(archivos[0]=="1"){
 	document.getElementById("s1").innerHTML=archivos;
 	}
 	if(archivos[0]=="2"){
