@@ -71,10 +71,10 @@ function historial2(){
         console.log("onMessageArrived:"+message.payloadString);
 	 
 	archivos=message.payloadString;
-	if(archivos[0]=="1"){
+	if(archivos[0]=="a"){
 	document.getElementById("s1").innerHTML=archivos;
 	}
-	if(archivos[0]=="2"){
+	if(archivos[0]=="b"){
 	document.getElementById("s2").innerHTML=archivos;
 
 	}
