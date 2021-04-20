@@ -40,6 +40,8 @@ function historial() {
     console.log("Conectado...");
 	
     client.subscribe("wlady_hp66@hotmail.com/tema1");
+    client.subscribe("wlady_hp66@hotmail.com/tema2");
+	  
     message = new Paho.MQTT.Message("hola desde la web");
     message.destinationName = "wlady_hp66@hotmail.com/tema1";
     message.destinationName = "wlady_hp66@hotmail.com/tema2";
