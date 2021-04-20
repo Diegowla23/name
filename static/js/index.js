@@ -2,20 +2,12 @@
 
 function historial() {
 	//alert("led on");
-	console.log("archivos1");
+	console.log("historial");
 	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("archivos1");
-    	message.destinationName = "wlady_hp66@hotmail.com/tema1";
+	message = new Paho.MQTT.Message("historial");
+    	message.destinationName = "wlady_hp66@hotmail.com/tema2";
     	client.send(message);
   
-}
-function historial2(){	
-	//alert("led off");
-	console.log("archivos2");
-	message = new Paho.MQTT.Message("archivos2");
-    	message.destinationName = "wlady_hp66@hotmail.com/tema1";
-    	client.send(message);
-	//document.getElementById("sensor").innerHTML="led off";
 }
 
 
@@ -50,6 +42,7 @@ function historial2(){
     client.subscribe("wlady_hp66@hotmail.com/tema1");
     message = new Paho.MQTT.Message("hola desde la web");
     message.destinationName = "wlady_hp66@hotmail.com/tema1";
+    message.destinationName = "wlady_hp66@hotmail.com/tema2";
     client.send(message);
 	
   }
@@ -72,9 +65,25 @@ function historial2(){
 	 
 	archivos=message.payloadString;
 	if(archivos[0]=="a"){
-	document.getElementById("s1").innerHTML=archivos;
+	document.getElementById("s3").innerHTML=archivos;
 	}
 	if(archivos[0]=="b"){
+	document.getElementById("s4").innerHTML=archivos;
+
+	}
+	  
+	if(archivos=="SEN1-ON"){
+	document.getElementById("s1").innerHTML=archivos;
+	}
+	if(archivos=="SEN1-OFF"){
+	document.getElementById("s1").innerHTML=archivos;
+
+	}
+	  
+	if(archivos=="SEN2-ON"){
+	document.getElementById("s2").innerHTML=archivos;
+	}
+	if(archivos=="SEN2-OFF"){
 	document.getElementById("s2").innerHTML=archivos;
 
 	}
