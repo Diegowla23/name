@@ -66,7 +66,7 @@ function historial() {
         console.log("onMessageArrived:"+message.payloadString);
 	 
 	archivos=message.payloadString;
-	if(archivos[0]=="a"){
+	if(archivos[0]=="aa"){
 	document.getElementById("s3").innerHTML=archivos;
 	}
 	if(archivos[0]=="b"){
