@@ -19,13 +19,12 @@ def listToString(s):
 def on_message(client, obj, msg):    
 	mensaje=(msg.payload.decode("utf-8"))
 	print(mensaje)
-    if mensaje=="limpiar":
-        print("Limpiando Historial")
-        mqttc.publish("wlady_hp66@hotmail.com/tema1", "--")
-        f.write(" ")
+	if mensaje=="limpiar":
+		print("Limpiando Historial")
+		mqttc.publish("wlady_hp66@hotmail.com/tema1", "--")
+		f=open("sensor.txt","w")
+		f.write(" ")
 		f.close()
-
-        f=open("sensor.txt","w")
 	elif mensaje=="historial":
 		print("Enviando Historial")
 		f=open("sensor.txt","r")
