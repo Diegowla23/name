@@ -19,7 +19,14 @@ def listToString(s):
 def on_message(client, obj, msg):    
 	mensaje=(msg.payload.decode("utf-8"))
 	print(mensaje)
-	if mensaje=="historial":
+    if mensaje=="limpiar":
+        print("Limpiando Historial")
+        mqttc.publish("wlady_hp66@hotmail.com/tema1", "--")
+        f.write(" ")
+		f.close()
+
+        f=open("sensor.txt","w")
+	elif mensaje=="historial":
 		print("Enviando Historial")
 		f=open("sensor.txt","r")
 		#lines = f.readlines()
@@ -56,7 +63,7 @@ rc=0
 print("Inicio de conexion")
 i = 0
 while rc == 0:
-	time.sleep(1)
+	time.sleep(3)
 	rc = mqttc.loop()
 	Fechahora=datetime.datetime.now().strftime('%d-%m-%Y     %H:%M:%S    ')
 	if GPIO.input(20):
@@ -68,7 +75,11 @@ while rc == 0:
 		f.close()
 	else:
 		GPIO.output(18, False)
+		men=("Sensor1 desctivado")
 		mqttc.publish("wlady_hp66@hotmail.com/tema1", "S1 desactivado")
+		f=open("sensor.txt","a")
+		f.write("H1 "+Fechahora  +men +"\n")
+		f.close()
 
 	if GPIO.input(19):
 		GPIO.output(17, True)
@@ -79,5 +90,8 @@ while rc == 0:
 		f.close()
 	else:
 		GPIO.output(17, False)
+		men=("Sensor2 desctivado")
 		mqttc.publish("wlady_hp66@hotmail.com/tema1", "S2 desactivado")
-
+		f=open("sensor.txt","a")
+		f.write("H2 "+Fechahora  +men +"\n")
+		f.close()

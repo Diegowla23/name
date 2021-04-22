@@ -59,7 +59,10 @@
 	Ident=(message.payloadString).split(" ")[0];
 	datos=(message.payloadString).split(" ")[1];
 	fecha=(message.payloadString);
-
+	if (Ident== "--"){
+		document.getElementById("historial1").innerHTML=Ident;
+		document.getElementById("historial2").innerHTML=Ident;
+		}
 	if (Ident== "S1"){
 		document.getElementById("sensor1").innerHTML=datos;
 		}
