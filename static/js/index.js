@@ -63,11 +63,9 @@
 		}
 	if (Ident== "H1"){
 		document.getElementById("historial1").innerHTML=fecha;
-		document.getElementById("conjunto").innerHTML=fecha;
 	}
 	if (Ident== "H2"){
 		document.getElementById("historial2").innerHTML=fecha;
-		document.getElementById("conjunto").innerHTML=fecha;
 		}
   }
   
