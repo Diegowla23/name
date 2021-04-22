@@ -6,6 +6,11 @@
     message.destinationName = "wlady_hp66@hotmail.com/tema2";
     client.send(message);
 	  }
+  function limp(){
+	message = new Paho.MQTT.Message("limpiar");
+    message.destinationName = "wlady_hp66@hotmail.com/tema2";
+    client.send(message);
+	  }
 
   client = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
 
